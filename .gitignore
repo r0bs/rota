@@ -6,5 +6,7 @@ credentials.json
 token.json
 spreadsheetId.js
 
+.DS_Store
+
 # Serverless directories
 .serverless
