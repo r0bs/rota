@@ -1,0 +1,16 @@
+service: cam-dienstplan 
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-central-1
+  stage: prod
+  memorySize: 128
+functions:
+  dienstplan:
+    handler: handler.dienstplan
+    events:
+     - http:
+         path: getSchedule
+         method: get
+         cors: 
+           origin: "cutandmore-bs.de"

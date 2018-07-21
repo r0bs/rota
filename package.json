@@ -1,0 +1,14 @@
+{
+  "name": "schedule",
+  "version": "0.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "r0bs",
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "googleapis": "^27.0.0"
+  }
+}
