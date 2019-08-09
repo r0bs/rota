@@ -4,7 +4,7 @@ provider:
   runtime: nodejs10.x
   region: eu-central-1
   stage: prod
-  memorySize: 256
+  memorySize: 128
 functions:
   dienstplan:
     handler: handler.dienstplan
