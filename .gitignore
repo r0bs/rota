@@ -4,7 +4,7 @@ jspm_packages
 
 credentials.json
 token.json
-spreadsheetId.js
+spreadsheetId.json
 
 .DS_Store
 

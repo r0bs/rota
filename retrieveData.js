@@ -6,12 +6,12 @@ const {
 const moment = require("moment");
 const dataSorter = require("./sortData.js");
 
-const spreadsheetId = require("./spreadsheetId.js");
-
 
 // If modifying these scopes, delete credentials.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = 'token.json';
+
+const spreadsheetId = JSON.parse(fs.readFileSync("spreadsheetId.json")).spreadsheetId;
 
 
 const weekdays = ["monday", "tuesday", "wedneday", "thursday", "friday", "saturday"];
@@ -100,7 +100,7 @@ function authorizationSucceded(auth) {
     return new Promise(r => {
 
         sheets.spreadsheets.values.get({
-            spreadsheetId: spreadsheetId.spreadsheetId(),
+            spreadsheetId,
             range: "KW" + currentCalendarWeek + "!" + range
         }, (err, res) => {
             if (err) return console.log('The API returned an error: ' + err);
