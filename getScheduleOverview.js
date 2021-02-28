@@ -1,8 +1,8 @@
-const moment = require("moment");
+var { DateTime } = require('luxon');
 const weekdays = ["monday", "tuesday", "wedneday", "thursday", "friday", "saturday"];
-const currentCalendarWeek = moment().week();
-const dateMondayOfCurrentWeek = moment().day(1).week(currentCalendarWeek).format("DD.MM.");
-const dateSaturdayOfCurrentWeek = moment().day(6).week(currentCalendarWeek).format("DD.MM.YYYY");
+const tomorrow = DateTime.now().plus({ days: 1 });
+const dateMondayOfCurrentWeek = tomorrow.startOf('week').toFormat('dd.MM')
+const dateSaturdayOfCurrentWeek = dateMondayOfCurrentWeek.plus({ days: 6 }).toFormat('dd.MM.yyyy')
 const absent = "-abwesend-";
 const websiteUrl = "https://cutandmore-bs.de"
 

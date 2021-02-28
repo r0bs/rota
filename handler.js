@@ -2,7 +2,6 @@ const getter = require("./retrieveData.js");
 const overview = require("./getScheduleOverview.js");
 const branchview = require("./getBranchData.js");
 
-
 module.exports.dienstplan = function (event, context, callback) {
 
   getter.getScheduleData().then(scheduleData => {

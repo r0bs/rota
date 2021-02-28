@@ -1,9 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
+var { DateTime } = require('luxon');
 const {
     google
 } = require('googleapis');
-const moment = require("moment");
 const dataSorter = require("./sortData.js");
 
 
@@ -16,7 +16,7 @@ const spreadsheetId = JSON.parse(fs.readFileSync("spreadsheetId.json")).spreadsh
 
 const weekdays = ["monday", "tuesday", "wedneday", "thursday", "friday", "saturday"];
 const range = "A2:S40";
-const currentCalendarWeek = moment().week();
+const currentCalendarWeek = DateTime.now().plus({ days: 1 }).weekNumber
 
 module.exports.getScheduleData = () => {
 
@@ -31,6 +31,19 @@ module.exports.getScheduleData = () => {
 
 }
 
+function getWeekNumber(d) {
+    // Copy date so don't modify original
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setUTCDate(d.getUTCDate() + 5 - (d.getUTCDay()||7));
+    // Get first day of year
+    var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
+    // Return array of year and week number
+    return weekNo
+}
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -106,7 +119,7 @@ function authorizationSucceded(auth) {
             if (err) return console.log('The API returned an error: ' + err);
 
             r(dataSorter.sortData(res.data));
-    
+
         });
 
     })

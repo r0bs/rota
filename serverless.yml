@@ -1,7 +1,7 @@
 service: cam-dienstplan 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
   region: eu-central-1
   stage: prod
   memorySize: 128
