@@ -9,10 +9,10 @@
   "private": true,
   "license": "UNLICENSED",
   "dependencies": {
-    "googleapis": "67.1.0",
+    "googleapis": "^39.2.0",
     "luxon": "1.26.0"
   },
   "devDependencies": {
-    "serverless": "2.25.2"
+    "serverless": "^3.17.0"
   }
 }

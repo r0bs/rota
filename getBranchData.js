@@ -1,11 +1,9 @@
 var { DateTime } = require('luxon');
+
 const weekdays = ["monday", "tuesday", "wedneday", "thursday", "friday", "saturday"];
-const range = "A2:S40";
 const tomorrow = DateTime.now().plus({ days: 1 });
 const dateMondayOfCurrentWeek = tomorrow.startOf('week').toFormat('dd.MM')
-const dateSaturdayOfCurrentWeek = dateMondayOfCurrentWeek.plus({ days: 6 }).toFormat('dd.MM.yyyy')
-const absent = "-abwesend-";
-const websiteUrl = "https://cutandmore-bs.de"
+const dateSaturdayOfCurrentWeek = tomorrow.startOf('week').plus({ days: 6 }).toFormat('dd.MM.yyyy')
 
 const weekdaysGerman = {
     "monday": "Montag",
@@ -54,12 +52,11 @@ const createWeekHtml = (scheduleData, branch) => {
             Object.keys(scheduleData[staffer]).forEach(day => {
                 if (day === weekday) {
                     if (scheduleData[staffer][weekday].branch === branch) {
-                        console.log("2", staff);
                         staff = staff + `
                             <div class="ts_employee_cell">
                                 <span style="text-decoration:none;" href="team/index.php#${staffer}">
                                     <div class="employeeimg">
-                                        <img src="//cutandmore-bs.de/slir/w52-h52/wp-content/img/team/${staffer}.jpg">
+                                        <img src="https://cutandmore-bs.de/slir/w52-h52/wp-content/img/team/${staffer}.jpg">
                                     </div>
                                     <div class="employeetime">
                                         ${staffer}

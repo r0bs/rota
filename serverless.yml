@@ -1,10 +1,13 @@
 service: cam-dienstplan 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
   region: eu-central-1
   stage: prod
+  architecture: arm64
   memorySize: 128
+  apiGateway:
+    shouldStartNameWithService: true
 functions:
   dienstplan:
     handler: handler.dienstplan
@@ -12,5 +15,3 @@ functions:
      - http:
          path: getSchedule
          method: get
-         cors: 
-           origin: "cutandmore-bs.de"

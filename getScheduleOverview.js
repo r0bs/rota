@@ -1,8 +1,9 @@
 var { DateTime } = require('luxon');
+
 const weekdays = ["monday", "tuesday", "wedneday", "thursday", "friday", "saturday"];
 const tomorrow = DateTime.now().plus({ days: 1 });
 const dateMondayOfCurrentWeek = tomorrow.startOf('week').toFormat('dd.MM')
-const dateSaturdayOfCurrentWeek = dateMondayOfCurrentWeek.plus({ days: 6 }).toFormat('dd.MM.yyyy')
+const dateSaturdayOfCurrentWeek = tomorrow.startOf('week').plus({ days: 6 }).toFormat('dd.MM.yyyy')
 const absent = "-abwesend-";
 const websiteUrl = "https://cutandmore-bs.de"
 
