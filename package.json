@@ -9,7 +9,7 @@
   "private": true,
   "license": "UNLICENSED",
   "dependencies": {
-    "googleapis": "^39.2.0",
+    "googleapis": "^108.0.0",
     "luxon": "1.26.0"
   },
   "devDependencies": {
