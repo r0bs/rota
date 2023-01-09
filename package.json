@@ -10,7 +10,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "googleapis": "^108.0.0",
-    "luxon": "3.0.4"
+    "luxon": "3.2.1"
   },
   "devDependencies": {
     "serverless": "^3.22.0"
